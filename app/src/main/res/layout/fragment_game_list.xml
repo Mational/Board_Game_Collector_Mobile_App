@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayoutGL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".GameListFragment">
+
+    <LinearLayout
+        android:id="@+id/topLayoutGL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/toSUMButtonGL"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:backgroundTint="#2C81DB"
+            android:backgroundTintMode="src_in"
+            android:text="Back"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Select a column to sort"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
+        <LinearLayout
+            android:id="@+id/buttonsLayoutGL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/bggIDSortButtonGL"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C81DB"
+                android:backgroundTintMode="src_in"
+                android:gravity="center"
+                android:text="BGG ID"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
+            <Button
+                android:id="@+id/rankSortButtonGL"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C81DB"
+                android:backgroundTintMode="src_in"
+                android:gravity="center"
+                android:text="Rank"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
+            <Button
+                android:id="@+id/nameSortButtonGL"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C81DB"
+                android:backgroundTintMode="src_in"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
+            <Button
+                android:id="@+id/releaseSortButtonGL"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C81DB"
+                android:backgroundTintMode="src_in"
+                android:gravity="center"
+                android:text="Year"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sortTypeTextGL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            tools:visibility="gone" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/bottomLayoutGL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:paddingBottom="10dp">
+
+        <TableLayout
+            android:id="@+id/tableGamesGL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center" />
+    </ScrollView>
+
+</LinearLayout>
