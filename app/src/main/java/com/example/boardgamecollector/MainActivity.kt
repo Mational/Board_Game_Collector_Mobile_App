@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    override fun onBackPressed() {}
+    override fun onBackPressed() {}   //PAMIĘTAJ TUTAJ
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)

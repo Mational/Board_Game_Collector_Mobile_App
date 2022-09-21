@@ -34,13 +34,12 @@ class FirstFragment : Fragment() {
             }
         }
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //PRZEKZYWANIE NAZWY UŻYTKOWNIKA DO SF
+        //PRZEKAZYWANIE NAZWY UŻYTKOWNIKA DO SF
         binding.toSFButtonFF.setOnClickListener {
             var userName: String
             if(binding.nicknameInputFF.text.isEmpty())

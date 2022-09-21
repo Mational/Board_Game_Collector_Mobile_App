@@ -20,8 +20,6 @@ import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
-import kotlin.math.exp
-import kotlin.system.exitProcess
 
 class SecondFragment : Fragment() {
 
@@ -108,12 +106,11 @@ class SecondFragment : Fragment() {
             binding.toSUMwButtonSF.isClickable = false
             binding.toSUMwoButtonSF.isVisible = false
             binding.toSUMwButtonSF.isVisible = false
-            binding.titleTextSF.text = "Data Synchronizing"
+            binding.titleTextSF.text = "Data Synchronizing"  //poprawka II
         }
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
-            Log.i("msg", "tutaj jest gameinfodownloader")
             if(flagDownload && gamesNumber == 0 && expansionsNumber == 0) {
                 flagDownload = false
                 val dbHandler = MyDBHandler(requireContext(), null, null, 1)
@@ -127,7 +124,6 @@ class SecondFragment : Fragment() {
 
         override fun doInBackground(vararg p0: String?): String {
             try{
-                Log.i("msg", "przed urlem")
                 val url = URL("https://www.boardgamegeek.com/xmlapi2/collection?username=$userName&stats=1")
                 val connection = url.openConnection()
                 connection.connect()
@@ -136,7 +132,6 @@ class SecondFragment : Fragment() {
                 val testDirectory = File("$appFilesDirectory/XML")
                 if(!testDirectory.exists()) {
                     testDirectory.mkdir()
-                    Log.i("msg", "stworzylem testDirectory")
                 }
                 val fos = FileOutputStream("$testDirectory/accountInfo.xml")
                 val data = ByteArray(1024)
@@ -249,21 +244,17 @@ class SecondFragment : Fragment() {
 
     fun insertDataToDatabase() {
         val filename = "accountInfo.xml"
-        Log.i("msg", "zaczynam odczyt")
         val path = requireContext().filesDir
         val inDir = File(path, "XML")
 
         if(inDir.exists()) {
-            Log.i("msg", "wchodze do inDir.exists")
             val file = File(inDir, filename)
             if(file.exists()) {
-                Log.i("msg", "wchodze do file.exists")
                 val xmlDoc: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file)
 
                 xmlDoc.documentElement.normalize()
                 val items: NodeList = xmlDoc.getElementsByTagName("item")
                 for(i in 0 until items.length) {
-                    Log.i("msg", items.length.toString())
                     val itemNode = items.item(i)
                     val itemId = itemNode.attributes.getNamedItem("objectid").nodeValue
                     itemsList.add(itemId)
@@ -369,4 +360,4 @@ class SecondFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-}
+}   

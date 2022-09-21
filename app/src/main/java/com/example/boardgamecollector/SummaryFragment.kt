@@ -98,13 +98,17 @@ class SummaryFragment : Fragment() {
         binding.yesCommitButtonSUM.setOnClickListener {
             var path = requireContext().filesDir
             var inDir = File(path, "XML")
+            inDir.deleteRecursively()
+
             var filename = "userdate.csv"
             var file = File(path, filename)
             file.delete()
-            inDir.deleteRecursively()
 
-            path = requireContext().filesDir
-            path = path.parentFile
+            filename = "gameID.csv"
+            file = File(path, filename)
+            file.delete()
+
+            path = requireContext().filesDir.parentFile
             path = File(path, "databases")
             path.deleteRecursively()
             exitProcess(0)
